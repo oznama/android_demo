@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Puras Metidas</string>
+
+    <string name="mainlayout_login">Login</string>
+    <string name="mainLayout_username">Username</string>
+    <string name="mainLayout_password">Password</string>
+    <string name="mainLayout_failed">Login failed, retry</string>
+
+    <string name="menuLayout_title">Welcome to Menu</string>
+    <string name="menuLayout_opt1">My Users</string>
+    <string name="menuLayout_opt2">Option 2</string>
+    <string name="menuLayout_opt3">Option 3</string>
+    <string name="menuLayout_opt4">Option 4</string>
+    <string name="menuLayout_opt5">Option 5</string>
+    <string name="menuLayout_opt6">Option 6</string>
+
+    <string name="search_hint">Search...</string>
+
+    <string name="userDetailLayout_tab_detail">Detail</string>
+    <string name="userDetailLayout_tab_courses">Courses</string>
+    <string name="userDetailLayout_tab_feedback">Feedback</string>
+
+    <string name="userDetailLayout_id">ID: </string>
+    <string name="userDetailLayout_firstName">First Name</string>
+    <string name="userDetailLayout_lastName">Last Name</string>
+    <string name="userDetailLayout_phone">Phone</string>
+    <string name="userDetailLayout_hireDate">Hire Date</string>
+    <string name="userDetailLayout_supervisor">Supervisor</string>
+    <string name="userDetailLayout_location">Location</string>
+    <string name="userDetailLayout_degree">Degree</string>
+    <string name="userDetailLayout_school">School</string>
+
+</resources>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.UserDetailMainFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/user_detail_viewpager">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            android:divider="?android:dividerHorizontal"
+            android:showDividers="middle"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_firstName"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_firstName"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_lastName"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_lastName"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_phone"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_phone"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_hireDate"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_hireDate"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_supervisor"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_supervisor"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_location"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_location"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_degree"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_degree"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_school"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_detail_et_school"
+                android:background="@null"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
