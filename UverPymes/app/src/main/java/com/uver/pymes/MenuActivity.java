@@ -1,6 +1,5 @@
 package com.uver.pymes;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.app.Activity;
@@ -8,13 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
-import com.androidnetworking.AndroidNetworking;
-import com.androidnetworking.error.ANError;
-import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.uver.pymes.object.UserResponse;
-
-import java.util.ArrayList;
 
 public class MenuActivity extends Activity {
 
@@ -25,7 +17,7 @@ public class MenuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-        CardView cardViewOpt1 = (CardView) findViewById(R.id.menu_cv_opt1);
+        CardView cardViewOpt1 = findViewById(R.id.menu_cv_opt1);
         cardViewOpt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,7 +28,7 @@ public class MenuActivity extends Activity {
             }
         });
 
-        CardView cardViewOpt2 = (CardView) findViewById(R.id.menu_cv_opt2);
+        CardView cardViewOpt2 = findViewById(R.id.menu_cv_opt2);
         cardViewOpt2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +36,7 @@ public class MenuActivity extends Activity {
             }
         });
 
-        CardView cardViewOpt3 = (CardView) findViewById(R.id.menu_cv_opt3);
+        CardView cardViewOpt3 = findViewById(R.id.menu_cv_opt3);
         cardViewOpt3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +44,7 @@ public class MenuActivity extends Activity {
             }
         });
 
-        CardView cardViewOpt4 = (CardView) findViewById(R.id.menu_cv_opt4);
+        CardView cardViewOpt4 = findViewById(R.id.menu_cv_opt4);
         cardViewOpt4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +52,7 @@ public class MenuActivity extends Activity {
             }
         });
 
-        CardView cardViewOpt5 = (CardView) findViewById(R.id.menu_cv_opt5);
+        CardView cardViewOpt5 = findViewById(R.id.menu_cv_opt5);
         cardViewOpt5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,7 +60,7 @@ public class MenuActivity extends Activity {
             }
         });
 
-        CardView cardViewOpt6 = (CardView) findViewById(R.id.menu_cv_opt6);
+        CardView cardViewOpt6 = findViewById(R.id.menu_cv_opt6);
         cardViewOpt6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

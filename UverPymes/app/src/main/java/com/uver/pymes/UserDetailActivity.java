@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +22,6 @@ import com.uver.pymes.fragment.UserDetailMainFragment;
 import com.uver.pymes.fragment.UserDetailTabsAdapter;
 import com.uver.pymes.object.Skill;
 import com.uver.pymes.object.User;
-
 
 public class UserDetailActivity extends AppCompatActivity {
 

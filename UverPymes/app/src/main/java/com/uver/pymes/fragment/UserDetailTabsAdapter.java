@@ -1,7 +1,5 @@
 package com.uver.pymes.fragment;
 
-import com.uver.pymes.object.User;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;

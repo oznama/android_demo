@@ -59,10 +59,10 @@ public class MyUsersListAdapter extends BaseAdapter implements Filterable {
             view = inflater.inflate(R.layout.my_users_content, null);
         }
 
-        TextView name = (TextView) view.findViewById(R.id.my_users_lv_tv_name);
-        TextView detail1 = (TextView) view.findViewById(R.id.my_users_lv_tv_detail_1);
-        TextView detail2 = (TextView) view.findViewById(R.id.my_users_lv_tv_detail_2);
-        ImageView imageView = (ImageView) view.findViewById(R.id.my_users_lv_iv);
+        TextView name = view.findViewById(R.id.my_users_lv_tv_name);
+        TextView detail1 = view.findViewById(R.id.my_users_lv_tv_detail_1);
+        TextView detail2 = view.findViewById(R.id.my_users_lv_tv_detail_2);
+        ImageView imageView = view.findViewById(R.id.my_users_lv_iv);
 
         name.setText(userList.get(i).getUserFullName());
         detail1.setText(userList.get(i).getPosition());

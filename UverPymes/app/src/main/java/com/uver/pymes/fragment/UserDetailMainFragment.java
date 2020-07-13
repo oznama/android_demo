@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 
 import com.uver.pymes.R;
 import com.uver.pymes.object.User;
@@ -72,21 +71,21 @@ public class UserDetailMainFragment extends Fragment {
                              Bundle savedInstanceState) {
         Log.d(LOGGER, "Creating view");
         View view = inflater.inflate(R.layout.user_detail_main, container, false);
-        firstName = (EditText) view.findViewById(R.id.user_detail_et_firstName);
+        firstName = view.findViewById(R.id.user_detail_et_firstName);
         firstName.setEnabled(isAdmin);
-        lastName = (EditText)view.findViewById(R.id.user_detail_et_lastName);
+        lastName = view.findViewById(R.id.user_detail_et_lastName);
         lastName.setEnabled(isAdmin);
-        phone = (EditText)view.findViewById(R.id.user_detail_et_phone);
+        phone = view.findViewById(R.id.user_detail_et_phone);
         phone.setEnabled(isAdmin);
-        hireDate = (EditText)view.findViewById(R.id.user_detail_et_hireDate);
+        hireDate = view.findViewById(R.id.user_detail_et_hireDate);
         hireDate.setEnabled(isAdmin);
-        supervisor = (EditText)view.findViewById(R.id.user_detail_et_supervisor);
+        supervisor = view.findViewById(R.id.user_detail_et_supervisor);
         supervisor.setEnabled(isAdmin);
-        location = (EditText)view.findViewById(R.id.user_detail_et_location);
+        location = view.findViewById(R.id.user_detail_et_location);
         location.setEnabled(isAdmin);
-        degree = (EditText)view.findViewById(R.id.user_detail_et_degree);
+        degree = view.findViewById(R.id.user_detail_et_degree);
         degree.setEnabled(isAdmin);
-        school = (EditText)view.findViewById(R.id.user_detail_et_school);
+        school = view.findViewById(R.id.user_detail_et_school);
         school.setEnabled(isAdmin);
         setValues();
         return view;

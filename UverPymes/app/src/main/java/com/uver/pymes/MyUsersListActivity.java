@@ -1,17 +1,11 @@
 package com.uver.pymes;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -39,8 +33,8 @@ public class MyUsersListActivity extends Activity implements SearchView.OnQueryT
         setContentView(R.layout.my_users_list);
         int userId = getIntent().getIntExtra("userId", 0);
         isAdmin = getIntent().getBooleanExtra("isAdmin", false);
-        listView = (ListView) findViewById(R.id.my_users_lv);
-        searchView = (SearchView) findViewById(R.id.my_users_sv_search);
+        listView = findViewById(R.id.my_users_lv);
+        searchView = findViewById(R.id.my_users_sv_search);
         getMyUsers(userId);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
