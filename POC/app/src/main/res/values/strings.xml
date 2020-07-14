@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">POC</string>
+
+    <string name="main_view_welcome">Welcome to POC App</string>
+    <string name="main_view_username">Username|Email</string>
+    <string name="main_view_password">Password</string>
+    <string name="main_view_btn_singup">Login</string>
+    <string name="main_view_btn_singin">Register</string>
+    <string name="main_view_login_fail">User invalid</string>
+
+</resources>
