@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.oznama.poc.beans.User;
+import com.oznama.poc.utils.DBDummy;
+
 public class MainActivity extends AppCompatActivity {
 
     private final String LOGGER = "MainActivity";
@@ -23,12 +26,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         findAllElements();
     }
-
+    
     private void findAllElements(){
         this.etUsername = findViewById(R.id.main_et_username);
         this.etPassword = findViewById(R.id.main_et_password);
         this.btnLogin = findViewById(R.id.main_btn_login);
         this.btnRegister = findViewById(R.id.main_btn_register);
+        this.btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent register = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(register);
+            }
+        });
         doLogin();
     }
 
@@ -39,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 Log.d(LOGGER, String.format("Username: %s, Password: %s", username, password));
-                if(username.toLowerCase().equals("oznama27@gmail.com") && password.equals("1234")){
+                if( DBDummy.USERS.contains(new User(username, password)) ||
+                        (username.toLowerCase().equals("oznama27@gmail.com") && password.equals("1234"))){
                     Intent menu = new Intent(MainActivity.this, MenuActivity.class);
                     startActivity(menu);
                 }else{
