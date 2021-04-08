@@ -10,7 +10,7 @@ import android.view.View;
 
 public class MenuActivity extends Activity {
 
-    private final String LOGGER = "MenuActivity";
+    private final String LOGGER =  this.getClass().getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

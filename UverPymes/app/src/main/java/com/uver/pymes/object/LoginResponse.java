@@ -1,9 +1,9 @@
 package com.uver.pymes.object;
 
-public class GenericResponse {
+public class LoginResponse {
     private Integer code;
     private String status;
-    private Object entity;
+    private Entity entity;
 
     public Integer getCode() {
         return code;
@@ -21,19 +21,20 @@ public class GenericResponse {
         this.status = status;
     }
 
-    public Object getEntity() {
+    public Entity getEntity() {
         return entity;
     }
 
-    public void setEntity(Object entity) {
+    public void setEntity(Entity entity) {
         this.entity = entity;
     }
 
     @Override
     public String toString() {
-        return "CognitoLoginResponse{" +
+        return "LoginResponse{" +
                 "code=" + code +
                 ", status='" + status + '\'' +
+                ", entity=" + entity +
                 '}';
     }
 }

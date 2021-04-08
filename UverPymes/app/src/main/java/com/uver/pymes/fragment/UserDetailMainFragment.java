@@ -20,7 +20,7 @@ import com.uver.pymes.object.User;
  */
 public class UserDetailMainFragment extends Fragment {
 
-    private final String LOGGER = "UserDetailMainFragment";
+    private final String LOGGER = this.getClass().getName();
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +31,7 @@ public class UserDetailMainFragment extends Fragment {
     private User user;
     private boolean isAdmin;
 
-    private EditText firstName, lastName, phone, hireDate, supervisor, location, degree, school;
+    private EditText firstName, lastName, phone, position, jobSeniority, hireDate, oldDate, lastEvaluation;
 
     public UserDetailMainFragment() {
         // Required empty public constructor
@@ -49,6 +49,7 @@ public class UserDetailMainFragment extends Fragment {
     public static UserDetailMainFragment newInstance(User user, boolean isAdmin) {
         UserDetailMainFragment fragment = new UserDetailMainFragment();
         Bundle args = new Bundle();
+        Log.d(UserDetailMainFragment.class.getName(), "New instance, putting user arg: " + user);
         args.putSerializable(ARG_USER, user);
         args.putBoolean(ARG_IS_ADMIN, isAdmin);
         fragment.setArguments(args);
@@ -62,6 +63,7 @@ public class UserDetailMainFragment extends Fragment {
         if (getArguments() != null) {
             Log.d(LOGGER, "Loading arguments");
             user = (User) getArguments().getSerializable(ARG_USER);
+            Log.d(LOGGER, "User retriving: " + user.toString());
             isAdmin = getArguments().getBoolean(ARG_IS_ADMIN);
         }
     }
@@ -77,16 +79,16 @@ public class UserDetailMainFragment extends Fragment {
         lastName.setEnabled(isAdmin);
         phone = view.findViewById(R.id.user_detail_et_phone);
         phone.setEnabled(isAdmin);
-        hireDate = view.findViewById(R.id.user_detail_et_hireDate);
+        position = view.findViewById(R.id.userDetailLayout_position);
+        position.setEnabled(isAdmin);
+        jobSeniority = view.findViewById(R.id.userDetailLayout_jobSeniority);
+        jobSeniority.setEnabled(isAdmin);
+        hireDate = view.findViewById(R.id.userDetailLayout_hireDate);
         hireDate.setEnabled(isAdmin);
-        supervisor = view.findViewById(R.id.user_detail_et_supervisor);
-        supervisor.setEnabled(isAdmin);
-        location = view.findViewById(R.id.user_detail_et_location);
-        location.setEnabled(isAdmin);
-        degree = view.findViewById(R.id.user_detail_et_degree);
-        degree.setEnabled(isAdmin);
-        school = view.findViewById(R.id.user_detail_et_school);
-        school.setEnabled(isAdmin);
+        oldDate = view.findViewById(R.id.userDetailLayout_oldDate);
+        oldDate.setEnabled(isAdmin);
+        lastEvaluation = view.findViewById(R.id.userDetailLayout_lastEvaluation);
+        lastEvaluation.setEnabled(isAdmin);
         setValues();
         return view;
     }
@@ -97,11 +99,11 @@ public class UserDetailMainFragment extends Fragment {
             firstName.setText(user.getFirstName());
             lastName.setText(user.getLastName());
             phone.setText(user.getPhone());
+            position.setText(user.getPosition());
+            jobSeniority.setText(user.getJobSeniority());
             hireDate.setText(user.getHireDate());
-            supervisor.setText(user.getSupervisor());
-            location.setText(user.getLocation());
-            degree.setText(user.getDegree());
-            school.setText(user.getSchool());
+            oldDate.setText(user.getOldDate());
+            lastEvaluation.setText(user.getLastEvaluation());
         }
     }
 }

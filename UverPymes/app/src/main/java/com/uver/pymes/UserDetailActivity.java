@@ -12,7 +12,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.google.android.flexbox.FlexboxLayout;
@@ -22,10 +21,13 @@ import com.uver.pymes.fragment.UserDetailMainFragment;
 import com.uver.pymes.fragment.UserDetailTabsAdapter;
 import com.uver.pymes.object.Skill;
 import com.uver.pymes.object.User;
+import com.uver.pymes.services.TalentService;
 
 public class UserDetailActivity extends AppCompatActivity {
 
-    private final String LOGGER = "UserDetailActivity";
+    private final String LOGGER = this.getClass().getName();
+
+    private TalentService talentService;
 
     private boolean isAdmin;
     private ImageView imageView;
@@ -42,18 +44,17 @@ public class UserDetailActivity extends AppCompatActivity {
 
         int id = getIntent().getIntExtra("id", 0);
         isAdmin = getIntent().getBooleanExtra("isAdmin", false);
-        String img = getIntent().getStringExtra("img");
-        getUserData(id, img);
+        getUserData(id);
     }
 
-    private void buildTabLayout(){
+    private void buildTabLayout(UserDetailMainFragment userDetailMainFragment){
         tabLayout = findViewById(R.id.user_detail_tablayout);
         tabLayout.addTab(tabLayout.newTab().setText(R.string.userDetailLayout_tab_detail));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.userDetailLayout_tab_courses));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.userDetailLayout_tab_feedback));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         final ViewPager viewPager = findViewById(R.id.user_detail_viewpager);
-        UserDetailTabsAdapter tabsAdapter = new UserDetailTabsAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        UserDetailTabsAdapter tabsAdapter = new UserDetailTabsAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), userDetailMainFragment);
         viewPager.setAdapter(tabsAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -74,33 +75,29 @@ public class UserDetailActivity extends AppCompatActivity {
         });
     }
 
-    private void getUserData(final int id, final String img){
-        String url = "http://3.83.6.227:23412/eStaffingDraftService/api/talent";
-        AndroidNetworking.get(url)
-                .addQueryParameter("id", String.valueOf(id))
-                .build()
-                .getAsObject(User.class, new ParsedRequestListener<User>(){
-                    @Override
-                    public void onResponse(User response) {
-                        UserDetailMainFragment.newInstance(response, isAdmin);
-                        // Todo Remove
-                        response.setUserImg(img);
-                        if( !response.getUserImg().isEmpty()){
-                            Picasso.with(getBaseContext()).load(response.getUserImg()).into(imageView);
-                        }
-                        if( response.getSkills() != null ) {
-                            for(Skill s : response.getSkills()){
-                                lySkills.addView(createTextViewSkill(s.getName()));
-                            }
-                        }
-                        buildTabLayout();
+    private void getUserData(final int id){
+        talentService = new TalentService();
+        talentService.getUserDetail(id, new ParsedRequestListener<User>(){
+            @Override
+            public void onResponse(User response) {
+                Log.d(LOGGER, response.toString());
+                //UserDetailMainFragment.newInstance(response, isAdmin);
+                if( response.getUserImg() != null && !response.getUserImg().isEmpty()){
+                    Picasso.with(getBaseContext()).load(response.getUserImg()).into(imageView);
+                }
+                if( response.getSkills() != null ) {
+                    for(Skill s : response.getSkills()){
+                        lySkills.addView(createTextViewSkill(s.getName()));
                     }
+                }
+                buildTabLayout(UserDetailMainFragment.newInstance(response, isAdmin));
+            }
 
-                    @Override
-                    public void onError(ANError anError) {
-                        Log.d(LOGGER, anError.toString());
-                    }
-                });
+            @Override
+            public void onError(ANError anError) {
+                Log.d(LOGGER, anError.toString());
+            }
+        });
     }
 
     private TextView createTextViewSkill(String text) {

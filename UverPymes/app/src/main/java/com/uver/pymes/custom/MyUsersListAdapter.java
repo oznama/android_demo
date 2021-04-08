@@ -66,8 +66,8 @@ public class MyUsersListAdapter extends BaseAdapter implements Filterable {
 
         name.setText(userList.get(i).getUserFullName());
         detail1.setText(userList.get(i).getPosition());
-        detail2.setText(userList.get(i).getPositionTier());
-        if( !userList.get(i).getUserImg().isEmpty()){
+        detail2.setText(userList.get(i).getPositionTierName());
+        if( userList.get(i).getUserImg() != null && !userList.get(i).getUserImg().isEmpty()){
             Picasso.with(context).load(userList.get(i).getUserImg()).into(imageView);
         }
         return view;
@@ -100,7 +100,7 @@ public class MyUsersListAdapter extends BaseAdapter implements Filterable {
                                         filterObject.getUserFullName(),
                                         filterObject.getUserImg(),
                                         filterObject.getPosition(),
-                                        filterObject.getPositionTier()
+                                        filterObject.getPositionTierName()
                                 )
                         );
                     }

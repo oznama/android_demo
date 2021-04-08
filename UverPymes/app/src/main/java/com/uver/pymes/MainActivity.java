@@ -11,14 +11,20 @@ import android.widget.Toast;
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
-import com.uver.pymes.object.GenericResponse;
+import com.uver.pymes.object.Cache;
+import com.uver.pymes.object.LoginResponse;
+import com.uver.pymes.services.LoginService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 public class MainActivity extends Activity {
 
     private final String LOGGER = this.getClass().getName();
+
+    private LoginService loginService;
 
     private EditText edUsername;
     private EditText edPassword;
@@ -51,7 +57,7 @@ public class MainActivity extends Activity {
         String username = edUsername.getText().toString();
         String password = edPassword.getText().toString();
         Log.d(LOGGER, "Username: " + username + ", Password: " + password);
-        validateDummy(username, password);
+        validate(username, password);
     }
 
     /**
@@ -74,33 +80,25 @@ public class MainActivity extends Activity {
      * @param password - contrasenia
      */
     private void validate(String username, String password){
-        String url = "http://3.83.6.227:23412/cognitoauth/rest/auth/login";
-
-        JSONObject body = new JSONObject();
-        try{
-            body.put("username", username);
-            body.put("password", password);
-        }catch (JSONException e){
-            Log.e(LOGGER, e.getMessage());
-        }
-
-        AndroidNetworking.post(url)
-                .addJSONObjectBody(body)
-                .build()
-                .getAsObject(GenericResponse.class, new ParsedRequestListener<GenericResponse>() {
-                    @Override
-                    public void onResponse(GenericResponse response) {
-                        Log.d(LOGGER, response.toString());
-                        if( response.getCode() == 100 && response.getStatus().equals("success") ){
-                            next();
-                        } else
-                            Toast.makeText(getApplicationContext(), (String) response.getEntity(), Toast.LENGTH_LONG).show();
+        this.loginService = new LoginService();
+        loginService.doLogin(username, password, new ParsedRequestListener<LoginResponse>() {
+            @Override
+            public void onResponse(LoginResponse response) {
+                if( response.getCode() == 100 && response.getStatus().equals("success") ){
+                    if(response.getEntity() != null) {
+                        Cache.token = response.getEntity().getToken().getId_token();
+                        Cache.refreshToken = response.getEntity().getToken().getRefresh_token();
                     }
+                    next();
+                } else
+                    Toast.makeText(getApplicationContext(), R.string.mainLayout_failed, Toast.LENGTH_LONG).show();
+            }
 
-                    @Override
-                    public void onError(ANError anError) {
-                        Log.d(LOGGER, anError.toString());
-                    }
-                });
+            @Override
+            public void onError(ANError anError) {
+                Log.e(LOGGER, "Error code: " + anError.getErrorCode());
+                Toast.makeText(getApplicationContext(), R.string.mainLayout_failed, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }

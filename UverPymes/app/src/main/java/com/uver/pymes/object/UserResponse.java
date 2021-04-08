@@ -6,14 +6,14 @@ public class UserResponse {
     private String userFullName;
     private String userImg;
     private String position;
-    private String positionTier;
+    private String positionTierName;
 
-    public UserResponse(int id, String userFullName, String userImg, String position, String positionTier) {
+    public UserResponse(int id, String userFullName, String userImg, String position, String positionTierName) {
         this.id = id;
         this.userFullName = userFullName;
         this.userImg = userImg;
         this.position = position;
-        this.positionTier = positionTier;
+        this.positionTierName = positionTierName;
     }
 
     public int getId() {
@@ -48,12 +48,12 @@ public class UserResponse {
         this.position = position;
     }
 
-    public String getPositionTier() {
-        return positionTier;
+    public String getPositionTierName() {
+        return positionTierName;
     }
 
-    public void setPositionTier(String positionTier) {
-        this.positionTier = positionTier;
+    public void setPositionTierName(String positionTierName) {
+        this.positionTierName = positionTierName;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class UserResponse {
                 ", userFullName='" + userFullName + '\'' +
                 ", userImg='" + userImg + '\'' +
                 ", position='" + position + '\'' +
-                ", positionTier='" + positionTier + '\'' +
+                ", positionTierName='" + positionTierName + '\'' +
                 '}';
     }
 }

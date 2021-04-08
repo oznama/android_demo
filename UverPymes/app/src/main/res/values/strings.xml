@@ -15,6 +15,7 @@
     <string name="menuLayout_opt6">Option 6</string>
 
     <string name="search_hint">Search...</string>
+    <string name="search_not_found">Not found result</string>
 
     <string name="userDetailLayout_tab_detail">Detail</string>
     <string name="userDetailLayout_tab_courses">Courses</string>
@@ -24,10 +25,10 @@
     <string name="userDetailLayout_firstName">First Name</string>
     <string name="userDetailLayout_lastName">Last Name</string>
     <string name="userDetailLayout_phone">Phone</string>
+    <string name="userDetailLayout_position">Position</string>
+    <string name="userDetailLayout_jobSeniority">Job Seniority</string>
     <string name="userDetailLayout_hireDate">Hire Date</string>
-    <string name="userDetailLayout_supervisor">Supervisor</string>
-    <string name="userDetailLayout_location">Location</string>
-    <string name="userDetailLayout_degree">Degree</string>
-    <string name="userDetailLayout_school">School</string>
+    <string name="userDetailLayout_oldDate">Old Date</string>
+    <string name="userDetailLayout_lastEvaluation">Last Evaluation</string>
 
 </resources>

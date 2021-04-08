@@ -10,11 +10,11 @@ public class User implements Serializable {
     private String lastName;
     private String phone;
     private String userImg;
+    private String position;
+    private String jobSeniority;
     private String hireDate;
-    private String supervisor;
-    private String location;
-    private String degree;
-    private String school;
+    private String oldDate;
+    private String lastEvaluation;
 
     private List<Skill> skills;
 
@@ -58,6 +58,22 @@ public class User implements Serializable {
         this.userImg = userImg;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getJobSeniority() {
+        return jobSeniority;
+    }
+
+    public void setJobSeniority(String jobSeniority) {
+        this.jobSeniority = jobSeniority;
+    }
+
     public String getHireDate() {
         return hireDate;
     }
@@ -66,36 +82,20 @@ public class User implements Serializable {
         this.hireDate = hireDate;
     }
 
-    public String getSupervisor() {
-        return supervisor;
+    public String getOldDate() {
+        return oldDate;
     }
 
-    public void setSupervisor(String supervisor) {
-        this.supervisor = supervisor;
+    public void setOldDate(String oldDate) {
+        this.oldDate = oldDate;
     }
 
-    public String getLocation() {
-        return location;
+    public String getLastEvaluation() {
+        return lastEvaluation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getDegree() {
-        return degree;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
-
-    public String getSchool() {
-        return school;
-    }
-
-    public void setSchool(String school) {
-        this.school = school;
+    public void setLastEvaluation(String lastEvaluation) {
+        this.lastEvaluation = lastEvaluation;
     }
 
     public List<Skill> getSkills() {
@@ -112,14 +112,7 @@ public class User implements Serializable {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
                 ", userImg='" + userImg + '\'' +
-                ", hireDate='" + hireDate + '\'' +
-                ", supervisor='" + supervisor + '\'' +
-                ", location='" + location + '\'' +
-                ", degree='" + degree + '\'' +
-                ", school='" + school + '\'' +
-                ", skills=" + skills +
                 '}';
     }
 }

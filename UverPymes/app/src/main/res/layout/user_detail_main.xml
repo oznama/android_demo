@@ -64,6 +64,34 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_position"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userDetailLayout_position"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/userDetailLayout_jobSeniority"
+                android:textSize="20dp"
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/userDetailLayout_jobSeniority"
+                android:background="@null"
+                android:textSize="25dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="@string/userDetailLayout_hireDate"
                 android:textSize="20dp"
                 android:textColor="@android:color/holo_blue_dark" />
@@ -71,63 +99,35 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_detail_et_hireDate"
+                android:id="@+id/userDetailLayout_hireDate"
                 android:background="@null"
                 android:textSize="25dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/userDetailLayout_supervisor"
+                android:text="@string/userDetailLayout_oldDate"
                 android:textSize="20dp"
                 android:textColor="@android:color/holo_blue_dark" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_detail_et_supervisor"
+                android:id="@+id/userDetailLayout_oldDate"
                 android:background="@null"
                 android:textSize="25dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/userDetailLayout_location"
+                android:text="@string/userDetailLayout_lastEvaluation"
                 android:textSize="20dp"
                 android:textColor="@android:color/holo_blue_dark" />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/user_detail_et_location"
-                android:background="@null"
-                android:textSize="25dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/userDetailLayout_degree"
-                android:textSize="20dp"
-                android:textColor="@android:color/holo_blue_dark" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/user_detail_et_degree"
-                android:background="@null"
-                android:textSize="25dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/userDetailLayout_school"
-                android:textSize="20dp"
-                android:textColor="@android:color/holo_blue_dark" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/user_detail_et_school"
+                android:id="@+id/userDetailLayout_lastEvaluation"
                 android:background="@null"
                 android:textSize="25dp" />
 

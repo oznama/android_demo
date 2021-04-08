@@ -7,18 +7,21 @@ import androidx.fragment.app.FragmentStatePagerAdapter;
 public class UserDetailTabsAdapter extends FragmentStatePagerAdapter {
 
     private int count;
+    private UserDetailMainFragment userDetailMainFragment;
 
-    public UserDetailTabsAdapter(FragmentManager fm, int behavior) {
+    public UserDetailTabsAdapter(FragmentManager fm, int behavior, UserDetailMainFragment userDetailMainFragment) {
         super(fm, behavior);
         this.count = behavior;
+        this.userDetailMainFragment = userDetailMainFragment;
     }
 
     @Override
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                UserDetailMainFragment main = new UserDetailMainFragment();
-                return main;
+                //UserDetailMainFragment main = new UserDetailMainFragment();
+                //return main;
+                return userDetailMainFragment;
             case 1:
                 UserDetailCoursesFrament courses = new UserDetailCoursesFrament();
                 return courses;
